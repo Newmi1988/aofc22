@@ -9,7 +9,9 @@ fn read_file_buffer(filepath: &Path) -> Result<(), Box<dyn std::error::Error>> {
     let f = BufReader::new(f);
 
     for line in f.lines() {
-        println!("{}", line.unwrap());
+        let line = line?;
+        println!("{}", &line);
+        
     }
     Ok(())
 }
